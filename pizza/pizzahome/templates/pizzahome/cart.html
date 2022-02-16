@@ -1,0 +1,35 @@
+{% extends 'pizzahome/index.html' %}
+
+{% block content %}
+<div id="cart">
+    {% for i in cart %}
+      <div>
+      <p><img class="imgfoodcart" src="{{i.image.url}}"></p>
+          {% for qua in quantity %}
+          {% if qua.product.id == i.id %}
+      <ul class="textfood"><li>{{i.name}} {{i.size}} {{qua.quantity}}шт {% widthratio qua.quantity 1 i.price %}руб </li></ul>
+          {% endif %}
+          {% endfor %}
+          <form method="POST">
+              {% csrf_token %}
+          <button type="submit" value="{{i.id}}" name="delete">Удалить товар из корзины</button>
+          </form>
+      </div>
+    {% endfor %}
+</div>
+
+
+<div id="order">
+    <h3 class="text">Итоговая стоимость: {{f_price}} руб</h3>
+    <form action="{% url 'cart' %}" method="post" name="order">
+      {% csrf_token %}
+      {% for f in form %}
+    <p><label class="text" for="{{ f.id_for_label }}">{{f.label}}: </label>{{f}}</p>
+    <div class="form-error">{{ f.errors }}</div>
+    {% endfor %}
+    <button type="submit" name="order">Заказать</button>
+    </form>
+</div>
+
+
+{% endblock content %}

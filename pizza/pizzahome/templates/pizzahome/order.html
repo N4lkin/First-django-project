@@ -1,0 +1,50 @@
+{% extends 'pizzahome/index.html' %}
+{% block content %}
+<div id="in_work">
+{% for order in ooc %}
+{% if order.in_work == True %}
+    {% for product in order.product.all %}
+    {% for qua in q_data %}
+    {% if product.id == qua.product.id %}
+    {% if qua.username.id == order.user.id %}
+     <h3>Товар:{{product.name}} размер:{{product.size}} цена за {{qua.quantity}}шт: {% widthratio qua.quantity 1 product.price %}руб</h3>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+    <h3 class="text">К оплате: {{order.finally_price}}</h3>
+<p class="text">Адрес: г.{{order.city}} ул.{{order.street}} д.{{order.house}} кв.{{order.apartment}} {{order.firstname}}
+    {{order.lastname}} (номер для связи {{order.number}})-{{order.user}}</p>
+<form method="post">
+    {% csrf_token %}
+<button class="button-delete" type="submit" name="delete" value="{{order.user.id}}">Удалить</button>
+</form>
+<hr>
+    {% endif %}
+{% endfor %}
+</div>
+<div id="not_in_work">
+{% for order in ooc %}
+{% if order.in_work == False %}
+    {% for product in order.product.all %}
+    {% for qua in q_data %}
+    {% if product.id == qua.product.id %}
+    {% if qua.username.id == order.user.id %}
+     <h3>Товар:{{product.name}} размер:{{product.size}} цена за {{qua.quantity}}шт: {% widthratio qua.quantity 1 product.price %}руб</h3>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+    <h3 class="text">К оплате: {{order.finally_price}}</h3>
+<p class="text">Адрес: г.{{order.city}} ул.{{order.street}} д.{{order.house}} кв.{{order.apartment}} {{order.firstname}}
+    {{order.lastname}} (номер для связи {{order.number}})-{{order.user}}</p>
+<form method="post">
+    {% csrf_token %}
+<button class="button-delete" type="submit" name="delete" value="{{order.user.id}}">Удалить</button>
+    <button type="submit" name="in_work" value="{{order.user.id}}">Принять заказ</button>
+</form>
+<hr>
+    {% endif %}
+{% endfor %}
+</div>
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends 'pizzahome/index.html' %}
+
+{% block content %}
+<div id="catalog">
+<table>
+    <tr><td>Суши<a href="{% url 'sushi' %}"><img src="../static/pizzahome/image/sushi1.jpg  " class="img"></a></td><td>Супы<a href="{% url 'sup' %}"><img src="../static/pizzahome/image/sup1.jpg" class="img"></a></td></tr>
+    <tr><td>Пицца<a href="{% url 'pizza' %}"><img src="../static/pizzahome/image/pizza1.jpg" class="img"></a></td><td>Салаты<a href="{% url 'salad' %}"><img src="../static/pizzahome/image/salad1.jpg" class="img"></a></td></tr>
+</table>
+</div>
+
+{% endblock content %}

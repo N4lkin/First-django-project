@@ -1,0 +1,13 @@
+{% extends 'pizzahome/index.html' %}
+
+{% block content %}
+<div class="foodblock">
+{% for m in model %}
+<ul class="food">
+    <a href="{% url 'food' m.slug %}"><li><img src="{{ m.image.url }}" class="imgfood"></li></a>
+    <li class="textfood">{{m.name}}</li>
+    <li class="text">{{m.content}}</li>
+</ul>
+{% endfor %}
+</div>
+{% endblock content %}

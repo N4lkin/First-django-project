@@ -1,0 +1,14 @@
+{% extends 'pizzahome/index.html' %}
+
+{% block content %}
+<h1>{{title}}</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {% for f in form %}
+  <p><label class="text" for="{{ f.id_for_label }}">{{f.label}}: </label>{{f}}</p>
+  <div class="text">{{ f.errors }}</div>
+  {% endfor %}
+  <button type="submit">Авторизация</button>
+</form>
+{% endblock content %}

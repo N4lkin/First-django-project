@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link type="text/css" href="{% static 'pizzahome/css/styles.css' %}" rel="stylesheet" />
+    <link rel="shortcut icon" href="{% static 'pizzahome/image/icon.ico' %}" type="image/x-icon">
+</head>
+<body>
+
+<div id="mainmenu">
+    {% if request.user.is_superuser %}
+    <ul><li><a href="{% url 'addpage' %}">Добавить товар</a></li></ul>
+    <ul><li><a href="{% url 'orders' %}">Заказы пользователей</a></li></ul>
+    {% endif %}
+    {% for p in menu %}
+    <ul>
+        <a href="{% url p.url %}"><li>{{p.title}}</li></a>
+    </ul>
+    {% endfor %}
+    {% if not request.user.is_anonymous %}
+    <ul><li><a href="{% url 'cart' %}">Корзина</a></li></ul>
+    {% endif %}
+    {% if request.user.is_authenticated %}
+    <ul><li><a href="{% url 'profile' %}">{{user.username}}</a></li></ul>
+    <ul><li><a href="{% url 'logout' %}">Выйти</a></li></ul>
+    {% else %}
+    <ul><li><a href="{% url 'register' %}">Регистрация</a></li></ul>
+    <ul><li><a href="{% url 'login' %}">Авторизация</a></li></ul>
+    {% endif %}
+</div>
+{% block content %}
+{% endblock content %}
+</body>
+</html>

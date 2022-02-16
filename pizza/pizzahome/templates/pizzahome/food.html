@@ -1,0 +1,25 @@
+{% extends 'pizzahome/index.html' %}
+
+{% block content %}
+<div id="foodcat" xmlns="http://www.w3.org/1999/html">
+<h1 class="textfoodcat">{{post.name}}</h1>
+
+    <h2 class="price">{{post.price}}Rub</h2>
+    <h2 class="size">{{post.size}} size</h2>
+{% if post.image %}
+<p><img class="imgfoodcat" src="{{post.image.url}}"></p>
+{% endif %}
+
+<p class="textfoodcat">{{post.content}}</p>
+    {% if request.user.is_authenticated %}
+    <form method="post">
+        {%csrf_token%}
+        <button type="submit">Добавить в корзину</button>
+        <input type="number" name="quantity_product">
+    </form>
+    {% else %}
+    <p>Для добавления товара в корзину - пройдите авторизацию</p>
+    <button type="button"><a href="{% url 'login' %}">Авторизация</a></button>
+    {% endif %}
+</div>
+{% endblock content %}

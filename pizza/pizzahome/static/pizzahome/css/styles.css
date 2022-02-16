@@ -1,0 +1,168 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    background: #2b2b2b;
+    font-family: "Montserrat";
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+#mainmenu {
+    display: flex;
+    justify-content: flex-end;
+    background: #333;
+}
+
+#mainmenu a {
+    color: #ededed;
+}
+
+#mainmenu a:focus {
+    color: #a1a1a1;
+}
+
+#mainmenu li {
+   padding: 0;
+   margin-left: 10px;
+   margin-right: 10px;
+}
+
+#mainmenu ul {
+    display: inline-block;
+    padding-left: 0;
+    margin-right: 10px;
+    border-bottom: solid #292929;
+    padding-bottom: 2px;
+
+}
+
+#catalog {
+    width: 350px;
+    margin: 20px auto 0 auto;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 5px 5px 10px #aaa;
+    border-radius: 25px;
+}
+
+#catalog table {
+    margin: auto;
+}
+
+#catalog td {
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.img {
+    height: 100px;
+    width: 100px;
+    box-shadow: 0px 5px 12px #2b2b2b;
+}
+.text {
+    color: #c7c7c7;
+    padding-left: 6px;
+}
+
+.imgfood {
+    height: 150px;
+    width: 150px;
+    box-shadow: 1px 1px 10px #aaa;
+}
+
+.textfood {
+    color: #c7c7c7;
+    padding-left: 6px;
+    font-size: 25px;
+}
+
+.foodblock {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 300px 300px;
+}
+
+.food {
+    height: 300px;
+    text-align: center;
+
+
+}
+
+#foodcat {
+    text-align: center;
+    color: #c7c7c7;
+}
+
+.imgfoodcat {
+    height: 350px;
+    weight: 350px;
+    box-shadow: 0px 5px 10px #141414;
+}
+
+.price {
+    position: absolute;
+    display: flex;
+    justify-content: flex;
+    padding-left: 150px;
+    font-size: 25px;
+}
+
+.size {
+    padding-right: 150px;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 25px;
+}
+
+.imgfoodcart {
+    height: 150px;
+    weight: 150px;
+    box-shadow: 0px 5px 10px #141414;
+}
+
+.hr-washed {
+	margin: 20px 0;
+	padding: 0;
+	height: 0;
+	border: none;
+	box-shadow: 0 0 10px 1px #e8e8e8;
+}
+
+#cart {
+    box-shadow: 0 0 10px 0 #e8e8e8;
+
+}
+
+#in_work {
+    background: #177837;
+}
+
+#not_in_work {
+    background: #0d60db;
+}
+
+.button-delete {
+    background-color: #f01;
+}
+
+.button-delete:focus {
+    background-color: #c9222d;
+    box-shadow: 0 0 5px 2px red;
+}
+
+@font-face {
+font-family: "Montserrat";
+src: url("../fonts/Montserrat-ExtraLightItalic.ttf") format("truetype");
+font-style: normal;
+font-weight: normal;
+}
+
